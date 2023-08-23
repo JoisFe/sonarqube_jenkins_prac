@@ -1,0 +1,10 @@
+services:
+  sonarqube:
+    image: sonarqube:latest
+    ports:
+      - "9000:9000"
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8888:8888"
