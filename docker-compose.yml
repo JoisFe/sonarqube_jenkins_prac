@@ -3,8 +3,21 @@ services:
     image: sonarqube:latest
     ports:
       - "9000:9000"
+    networks:
+      - sonarqube-jenkins-network
+    volumes:
+      - sonarqube-data:/opt/sonarqube/data
 
   jenkins:
     image: jenkins/jenkins:lts
     ports:
-      - "8888:8888"
+      - "8888:8080"
+    networks:
+      - sonarqube-jenkins-network
+
+networks:
+  sonarqube-jenkins-network:
+    driver: bridge
+
+volumes:
+  sonarqube-data:
