@@ -7,6 +7,8 @@ services:
       - sonarqube-jenkins-network
     volumes:
       - sonarqube-data:/opt/sonarqube/data
+      - sonarqube-conf:/opt/sonarqube/conf
+      - sosarqube-extensions-plugins:/opt/sonarqube/extensions/plugins
 
   jenkins:
     image: jenkins/jenkins:lts
@@ -21,3 +23,5 @@ networks:
 
 volumes:
   sonarqube-data:
+  sonarqube-conf:
+  sosarqube-extensions-plugins:
